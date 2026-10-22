@@ -1,13 +1,7 @@
 import { SiteBackground } from "@/components/site/site-background"
 import { site } from "@/content/site"
 
-import { Nav } from "./nav"
-
-const subpageLinks = [
-  { href: "/", label: "Accueil" },
-  { href: "/writeups", label: "Write-ups" },
-  { href: "/#contact", label: "Contact" },
-]
+import { Nav, mainLinks } from "./nav"
 
 /** Fond animé, barre de navigation et pied de page des pages secondaires. */
 export function PageShell({ children }: { children: React.ReactNode }) {
@@ -16,7 +10,7 @@ export function PageShell({ children }: { children: React.ReactNode }) {
       <SiteBackground />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-black/55" />
 
-      <Nav links={subpageLinks} />
+      <Nav links={mainLinks} />
 
       <main className="min-h-dvh text-white">{children}</main>
 

@@ -4,6 +4,8 @@
 
 export const cyber = {
   role: "Étudiant en cybersécurité · Ynov",
+  // Phrase affichée sous le nom, en bas de l'écran d'accueil
+  heroTagline: "Expert en cybersécurité",
   tagline: "Je cherche les failles avant les autres — et j'explique comment les corriger.",
   email: "contact@exemple.fr",
   // Empreinte de ta clé PGP publique (laisse vide pour masquer la ligne)

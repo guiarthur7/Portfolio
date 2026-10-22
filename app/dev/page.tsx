@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Mail } from "lucide-react";
 
 import { Nav } from "@/components/site/nav";
+import GlassmorphismCta from "@/components/ui/glassmorphism-cta";
 import { Reveal } from "@/components/site/reveal";
 import { ProjectCard } from "@/components/site/project-card";
 import { SectionHeading, glass } from "@/components/site/section-heading";
@@ -133,7 +134,10 @@ export default function Dev() {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="scroll-mt-16 px-6 py-32 text-center sm:py-48">
+          <section
+            id="contact"
+            className="flex min-h-[calc(100dvh-4rem)] scroll-mt-16 flex-col items-center justify-center px-6 py-24 text-center"
+          >
             <Reveal>
               <h2 className="text-5xl font-semibold tracking-[-0.03em] sm:text-7xl">Parlons-en.</h2>
               <p className="mx-auto mt-5 max-w-md text-lg text-white/60">
@@ -141,12 +145,11 @@ export default function Dev() {
               </p>
             </Reveal>
             <Reveal delay={100} className="mt-10 flex flex-col items-center gap-6">
-              <a
+              <GlassmorphismCta
                 href={`mailto:${site.email}`}
-                className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black transition hover:bg-white/85"
-              >
-                {site.email}
-              </a>
+                label={site.email}
+                icon={<Mail className="size-4 text-white" strokeWidth={1.5} />}
+              />
               <ul className="flex gap-6 text-sm text-white/60">
                 {site.links.map((l) => (
                   <li key={l.label}>

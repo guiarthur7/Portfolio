@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fira_Code, Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -20,6 +20,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
+  subsets: ["latin"],
+  weight: "700",
+});
+
 export const metadata: Metadata = {
   title: "Arthur Guillaume",
   description: "Portfolio d'Arthur Guillaume.",
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${arqovel.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${arqovel.variable} ${firaCode.variable} font-sans antialiased`}
       >
         {children}
       </body>

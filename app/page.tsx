@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight, ChevronRight, KeyRound } from "lucide-react";
+import { ArrowUpRight, ChevronRight, KeyRound, Mail } from "lucide-react";
 
-import { Nav } from "@/components/site/nav";
+import { Nav, mainLinks } from "@/components/site/nav";
+import { PortfolioHero } from "@/components/ui/portfolio-hero";
+import GlassmorphismCta from "@/components/ui/glassmorphism-cta";
 import { Reveal } from "@/components/site/reveal";
 import { ProjectCard } from "@/components/site/project-card";
 import { SectionHeading, glass } from "@/components/site/section-heading";
@@ -26,13 +27,6 @@ export const metadata: Metadata = {
   description: `Portfolio cybersécurité de ${site.name} : write-ups, labs et certifications.`,
 };
 
-const links = [
-  { href: "/writeups", label: "Write-ups" },
-  { href: "#labs", label: "Labs" },
-  { href: "#certifications", label: "Certifications" },
-  { href: "#contact", label: "Contact" },
-];
-
 export default function Home() {
   const latestWriteups = getAllWriteups().slice(0, 4);
 
@@ -42,42 +36,13 @@ export default function Home() {
       {/* voile qui s'assombrit vers le bas pour garder le texte lisible */}
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.55)_75%)]" />
 
-      <Nav links={links} />
+      <Nav links={mainLinks} />
 
       <main className="text-white">
         {/* Hero */}
-        <section className="flex min-h-dvh flex-col items-center justify-center px-6 text-center">
-          <Reveal>
-            <p className="text-sm font-medium tracking-wide text-white/60">{cyber.role}</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="mt-4 font-display text-[clamp(3rem,11vw,8rem)] leading-[0.95] font-normal">
-              {site.name}.
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-pretty text-white/70 sm:text-xl">
-              {cyber.tagline}
-            </p>
-          </Reveal>
-          <Reveal delay={300} className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            <a
-              href="#write-ups"
-              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-white/85"
-            >
-              Lire les write-ups
-            </a>
-            <a
-              href="#contact"
-              className="group inline-flex items-center text-sm font-medium text-white/80 transition hover:text-white"
-            >
-              Me contacter
-              <ChevronRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </Reveal>
-        </section>
+        <PortfolioHero lines={site.name.split(" ")} tagline={cyber.heroTagline} scrollTo="#suite" />
 
-        <div className="bg-gradient-to-b from-transparent via-black/60 to-black/80">
+        <div id="suite" className="bg-gradient-to-b from-transparent via-black/60 to-black/80">
           <TerminalShowcase />
 
           {/* Domaines */}
@@ -106,13 +71,11 @@ export default function Home() {
               ))}
             </div>
             <Reveal className="mt-10 text-center">
-              <Link
+              <GlassmorphismCta
                 href="/writeups"
-                className="group inline-flex items-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/80 transition hover:border-white/40 hover:text-white"
-              >
-                Tous les write-ups
-                <ChevronRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+                label="Tous les write-ups"
+                icon={<ChevronRight className="size-4 text-white" strokeWidth={1.5} />}
+              />
             </Reveal>
           </section>
 
@@ -206,7 +169,10 @@ export default function Home() {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="scroll-mt-16 px-6 py-32 text-center sm:py-48">
+          <section
+            id="contact"
+            className="flex min-h-[calc(100dvh-4rem)] scroll-mt-16 flex-col items-center justify-center px-6 py-24 text-center"
+          >
             <Reveal>
               <h2 className="text-5xl font-semibold tracking-[-0.03em] sm:text-7xl">Parlons-en.</h2>
               <p className="mx-auto mt-5 max-w-md text-lg text-white/60">
@@ -214,12 +180,11 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={100} className="mt-10 flex flex-col items-center gap-6">
-              <a
+              <GlassmorphismCta
                 href={`mailto:${cyber.email}`}
-                className="rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black transition hover:bg-white/85"
-              >
-                {cyber.email}
-              </a>
+                label={cyber.email}
+                icon={<Mail className="size-4 text-white" strokeWidth={1.5} />}
+              />
               {cyber.pgpFingerprint && (
                 <a
                   href={cyber.pgpKeyHref}
