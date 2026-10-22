@@ -55,7 +55,7 @@ export default function Dev() {
 
         <div className="bg-gradient-to-b from-transparent via-black/60 to-black/80">
           {/* Projets */}
-          <section id="projets" className="mx-auto max-w-5xl scroll-mt-12 px-4 py-28 sm:px-6 sm:py-40">
+          <section id="projets" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-28 sm:px-6 sm:py-40">
             <SectionHeading eyebrow="Projets" title="Sélection de travaux." />
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
               {projects.map((p, i) => (
@@ -87,7 +87,7 @@ export default function Dev() {
           </section>
 
           {/* À propos */}
-          <section id="a-propos" className="mx-auto max-w-4xl scroll-mt-12 px-6 py-28 sm:py-40">
+          <section id="a-propos" className="mx-auto max-w-4xl scroll-mt-16 px-6 py-28 sm:py-40">
             <Reveal>
               <p className="text-sm font-medium text-white/50">À propos</p>
               <p className="mt-6 text-3xl leading-tight font-semibold tracking-tight text-pretty text-white/40 sm:text-5xl">
@@ -130,7 +130,7 @@ export default function Dev() {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="scroll-mt-12 px-6 py-32 text-center sm:py-48">
+          <section id="contact" className="scroll-mt-16 px-6 py-32 text-center sm:py-48">
             <Reveal>
               <h2 className="text-5xl font-semibold tracking-[-0.03em] sm:text-7xl">Parlons-en.</h2>
               <p className="mx-auto mt-5 max-w-md text-lg text-white/60">

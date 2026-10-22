@@ -92,7 +92,7 @@ export default function Home() {
           </section>
 
           {/* Write-ups */}
-          <section id="write-ups" className="mx-auto max-w-5xl scroll-mt-12 px-4 py-28 sm:px-6 sm:py-40">
+          <section id="write-ups" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-28 sm:px-6 sm:py-40">
             <SectionHeading eyebrow="Write-ups" title="CTF & challenges, expliqués." />
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
               {latestWriteups.map((w, i) => (
@@ -113,7 +113,7 @@ export default function Home() {
           </section>
 
           {/* Labs */}
-          <section id="labs" className="mx-auto max-w-5xl scroll-mt-12 px-4 py-28 sm:px-6 sm:py-40">
+          <section id="labs" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-28 sm:px-6 sm:py-40">
             <SectionHeading eyebrow="Homelab & projets" title="Construit, cassé, durci." />
             <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
               {labs.map((l, i) => (
@@ -140,7 +140,7 @@ export default function Home() {
           </section>
 
           {/* Certifications & classements */}
-          <section id="certifications" className="mx-auto max-w-5xl scroll-mt-12 px-4 py-28 sm:px-6 sm:py-40">
+          <section id="certifications" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-28 sm:px-6 sm:py-40">
             <SectionHeading eyebrow="Certifications & classements" title="Les preuves." />
             <Reveal>
               <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 lg:grid-cols-4">
@@ -203,7 +203,7 @@ export default function Home() {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="scroll-mt-12 px-6 py-32 text-center sm:py-48">
+          <section id="contact" className="scroll-mt-16 px-6 py-32 text-center sm:py-48">
             <Reveal>
               <h2 className="text-5xl font-semibold tracking-[-0.03em] sm:text-7xl">Parlons-en.</h2>
               <p className="mx-auto mt-5 max-w-md text-lg text-white/60">
