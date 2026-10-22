@@ -47,6 +47,24 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Fond Aurora : la durée réelle est redéfinie par lumière dans le composant */
+@theme {
+  --animate-aurora: aurora 20s ease-in-out infinite;
+
+  @keyframes aurora {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+    33% {
+      transform: translate3d(8%, 6%, 0) rotate(12deg) scale(1.08);
+    }
+    66% {
+      transform: translate3d(-6%, 10%, 0) rotate(-8deg) scale(0.96);
+    }
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

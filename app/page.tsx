@@ -40,7 +40,7 @@ export default function Home() {
 
       <main className="text-white">
         {/* Hero */}
-        <PortfolioHero lines={site.name.split(" ")} tagline={cyber.heroTagline} scrollTo="#suite" color="#ffffff" />
+        <PortfolioHero lines={site.name.split(" ")} tagline={cyber.heroTagline} intro={cyber.heroIntro} scrollTo="#suite" color="#ffffff" />
 
         <div id="suite" className="bg-gradient-to-b from-transparent via-black/60 to-black/80">
           <TerminalShowcase />
