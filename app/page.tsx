@@ -6,6 +6,7 @@ import { Nav } from "@/components/site/nav";
 import { Reveal } from "@/components/site/reveal";
 import { ProjectCard } from "@/components/site/project-card";
 import { SectionHeading, glass } from "@/components/site/section-heading";
+import { TerminalShowcase } from "@/components/site/terminal-showcase";
 import { WriteupCard, pill } from "@/components/site/writeup-card";
 import { SiteBackground } from "@/components/site/site-background";
 import {
@@ -77,6 +78,8 @@ export default function Home() {
         </section>
 
         <div className="bg-gradient-to-b from-transparent via-black/60 to-black/80">
+          <TerminalShowcase />
+
           {/* Domaines */}
           <section className="mx-auto max-w-5xl px-4 py-28 sm:px-6 sm:py-40">
             <SectionHeading eyebrow="Domaines" title="Attaquer pour mieux défendre." />
