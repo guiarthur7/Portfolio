@@ -1,39 +1,41 @@
-// Tout le contenu du portfolio est ici : remplace les textes entre crochets.
+// Contenu de la version développeur (/dev) et nom affiché partout.
+// Projets repris de tes dossiers Ynov ; le reste = exemples à ajuster.
 
 export const site = {
   name: "Arthur Guillaume",
-  role: "[Ton titre — ex. Développeur web]",
-  tagline: "[Une phrase courte qui dit ce que tu fais et pour qui.]",
-  email: "[ton@email.com]",
+  role: "Développeur en formation · Ynov",
+  tagline: "Des cartes interactives aux API sécurisées, je construis des applications web solides de bout en bout.",
+  email: "contact@exemple.fr",
   links: [
-    { label: "GitHub", href: "#" },
+    { label: "GitHub", href: "https://github.com/guiarthur7" },
     { label: "LinkedIn", href: "#" },
   ],
 }
 
 export const projects = [
   {
-    title: "[Projet 1]",
-    description: "[Ce que fait le projet, en une ou deux phrases.]",
-    tags: ["[Tech]", "[Tech]", "[Tech]"],
+    title: "AirViz",
+    description:
+      "Carte interactive de la qualité de l'air en France, réalisée en 48 h en équipe : clusters dynamiques, filtres par région, date et polluant.",
+    tags: ["React", "Leaflet", "Express", "SQLite"],
     href: "#",
   },
   {
-    title: "[Projet 2]",
-    description: "[Ce que fait le projet, en une ou deux phrases.]",
-    tags: ["[Tech]", "[Tech]"],
+    title: "Numéone",
+    description: "Landing page marketing avec inscription et connexion, branchée sur sa propre API documentée avec Swagger.",
+    tags: ["Nuxt 3", "Tailwind", "Express", "MySQL"],
     href: "#",
   },
   {
-    title: "[Projet 3]",
-    description: "[Ce que fait le projet, en une ou deux phrases.]",
-    tags: ["[Tech]", "[Tech]", "[Tech]"],
+    title: "Site Restaurant",
+    description: "API REST structurée en MVC : comptes utilisateurs, mots de passe hachés avec bcrypt et sessions par JWT.",
+    tags: ["Node.js", "Express", "Sequelize", "JWT"],
     href: "#",
   },
   {
-    title: "[Projet 4]",
-    description: "[Ce que fait le projet, en une ou deux phrases.]",
-    tags: ["[Tech]", "[Tech]"],
+    title: "Librairie C++",
+    description: "Gestion d'une librairie en programmation orientée objet : livres, clients, ventes et magasin.",
+    tags: ["C++", "POO", "Makefile"],
     href: "#",
   },
 ]
@@ -41,19 +43,19 @@ export const projects = [
 export const about = {
   // Les fragments `strong` ressortent en blanc, le reste en gris
   statement: [
-    { text: "[Début de ta présentation,] " },
-    { text: "[ce qui te définit]", strong: true },
-    { text: " [et la suite de ta présentation.]" },
+    { text: "Étudiant à Ynov, j'aime comprendre comment les choses fonctionnent " },
+    { text: "pour les construire proprement", strong: true },
+    { text: " — et savoir où elles peuvent casser." },
   ],
   details: [
-    { label: "Formation", value: "[École — diplôme]" },
-    { label: "Basé à", value: "[Ville]" },
-    { label: "Disponible", value: "[Stage / alternance / freelance]" },
+    { label: "Formation", value: "Ynov Campus — Bachelor informatique" },
+    { label: "Basé à", value: "France" },
+    { label: "Disponible", value: "Stage / alternance" },
   ],
 }
 
 export const skills = [
-  { group: "[Front-end]", items: ["[Compétence]", "[Compétence]", "[Compétence]"] },
-  { group: "[Back-end]", items: ["[Compétence]", "[Compétence]", "[Compétence]"] },
-  { group: "[Outils]", items: ["[Compétence]", "[Compétence]", "[Compétence]"] },
+  { group: "Front-end", items: ["React & Next.js", "Vue & Nuxt", "TypeScript", "Tailwind CSS"] },
+  { group: "Back-end", items: ["Node.js & Express", "Python & FastAPI", "MySQL & SQLite", "API REST & JWT"] },
+  { group: "Bas niveau & outils", items: ["C & C++", "Go & Java", "Git", "Linux"] },
 ]

@@ -1,10 +1,10 @@
 ---
-title: "[Exemple] Injection SQL sur un formulaire de connexion"
+title: "Exemple — Injection SQL sur un formulaire de connexion"
 date: 2026-02-10
 platform: Root-Me
 category: Web
 difficulty: Moyen
-summary: "[Résumé : faille, exploitation, correctif — à remplacer.]"
+summary: "Un formulaire de connexion qui fait confiance aux entrées utilisateur, et la requête préparée qui règle le problème."
 tags: [SQLi, Burp Suite]
 ---
 

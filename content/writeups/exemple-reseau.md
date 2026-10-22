@@ -1,10 +1,10 @@
 ---
-title: "[Exemple] Box Linux — de nmap à root"
+title: "Exemple — Box Linux, de la reconnaissance au root"
 date: 2026-01-20
 platform: Hack The Box
 category: Réseau
 difficulty: Facile
-summary: "[Résumé : faille, exploitation, correctif — à remplacer.]"
+summary: "Un service mal configuré, une élévation de privilèges classique, et les réglages qui l'auraient empêchée."
 tags: [Nmap, Linux, PrivEsc]
 ---
 
