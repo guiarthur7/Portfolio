@@ -92,17 +92,13 @@ export function PortfolioHero({
   color?: string
 }) {
   const nameClass =
-    "w-full justify-center whitespace-nowrap font-code leading-[0.8] font-bold tracking-tighter uppercase"
-
-  // Police à chasse fixe : largeur ∝ nombre de lettres × taille.
-  // Chaque ligne est agrandie pour avoir la même largeur que la plus longue.
-  const longest = Math.max(...lines.map((l) => l.length))
+    "flex w-full justify-center whitespace-nowrap font-sans text-[clamp(3.5rem,9.5vw,11.5rem)] leading-[0.87] font-black tracking-tighter uppercase"
 
   return (
     <section className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-4">
       <h1 className="sr-only">{lines.join(" ")}</h1>
       <div aria-hidden className="text-center">
-        {lines.map((line) => (
+        {lines.map((line, i) => (
           <BlurText
             key={line}
             as="span"
@@ -110,20 +106,26 @@ export function PortfolioHero({
             delay={100}
             animateBy="letters"
             direction="top"
-            className={cn(nameClass, "flex")}
-            style={{ color, fontSize: `calc(clamp(3.5rem, 15vw, 13rem) * ${longest / line.length})` }}
+            className={nameClass}
+            // Première ligne pleine, les suivantes en contour.
+            style={i === 0 ? { color } : { color, filter: "url(#hero-outline)", letterSpacing: "0.01em" }}
           />
         ))}
-      </div>
-
-      <div className="absolute bottom-20 left-1/2 w-full -translate-x-1/2 px-6 sm:bottom-24 lg:bottom-28">
-        <div className="flex justify-center">
+        {/* Contour tracé sur la silhouette du texte (text-stroke dessinerait
+            aussi les tracés internes qui se chevauchent dans la police). */}
+        <svg width="0" height="0" className="absolute">
+          <filter id="hero-outline">
+            <feMorphology in="SourceGraphic" operator="dilate" radius="2" result="dilated" />
+            <feComposite in="dilated" in2="SourceGraphic" operator="out" />
+          </filter>
+        </svg>
+        <div className="mt-8 flex justify-center">
           <BlurText
             text={tagline}
             delay={150}
             animateBy="words"
             direction="top"
-            className="text-center text-base text-white/60 sm:text-lg md:text-xl lg:text-2xl"
+            className="max-w-sm justify-center text-center font-mono text-[11px] leading-relaxed tracking-[0.35em] text-white/40 uppercase"
           />
         </div>
       </div>
