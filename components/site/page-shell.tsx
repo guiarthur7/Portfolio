@@ -1,4 +1,4 @@
-import { Component as HorizonBackground } from "@/components/ui/horizon-hero-section"
+import { SiteBackground } from "@/components/site/site-background"
 import { site } from "@/content/site"
 
 import { Nav } from "./nav"
@@ -9,11 +9,11 @@ const subpageLinks = [
   { href: "/#contact", label: "Contact" },
 ]
 
-/** Fond Horizon, barre de navigation et pied de page des pages secondaires. */
+/** Fond animé, barre de navigation et pied de page des pages secondaires. */
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <HorizonBackground background />
+      <SiteBackground />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-black/55" />
 
       <Nav links={subpageLinks} />

@@ -4,7 +4,7 @@ import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { Nav } from "@/components/site/nav";
 import { Reveal } from "@/components/site/reveal";
 import { SectionHeading, glass } from "@/components/site/section-heading";
-import { Component as HorizonBackground } from "@/components/ui/horizon-hero-section";
+import { SiteBackground } from "@/components/site/site-background";
 import { about, projects, site, skills } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function Dev() {
   return (
     <>
-      <HorizonBackground background />
+      <SiteBackground />
       {/* voile qui s'assombrit vers le bas pour garder le texte lisible */}
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.55)_75%)]" />
 
