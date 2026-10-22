@@ -46,19 +46,31 @@ const GlowCard = ({
   const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const syncPointer = (e: PointerEvent) => {
-      const { clientX: x, clientY: y } = e
+    // Position du pointeur relative à la carte : `background-attachment: fixed` est ignoré
+    // sous un parent transformé (animation d'apparition), le halo partait alors en haut à gauche.
+    let last: { x: number; y: number } | null = null
 
-      if (cardRef.current) {
-        cardRef.current.style.setProperty("--x", x.toFixed(2))
-        cardRef.current.style.setProperty("--xp", (x / window.innerWidth).toFixed(2))
-        cardRef.current.style.setProperty("--y", y.toFixed(2))
-        cardRef.current.style.setProperty("--yp", (y / window.innerHeight).toFixed(2))
-      }
+    const update = () => {
+      const card = cardRef.current
+      if (!card || !last) return
+      const rect = card.getBoundingClientRect()
+      card.style.setProperty("--x", (last.x - rect.left).toFixed(2))
+      card.style.setProperty("--y", (last.y - rect.top).toFixed(2))
+      card.style.setProperty("--xp", (last.x / window.innerWidth).toFixed(2))
+      card.style.setProperty("--yp", (last.y / window.innerHeight).toFixed(2))
+    }
+
+    const syncPointer = (e: PointerEvent) => {
+      last = { x: e.clientX, y: e.clientY }
+      update()
     }
 
     document.addEventListener("pointermove", syncPointer, { passive: true })
-    return () => document.removeEventListener("pointermove", syncPointer)
+    window.addEventListener("scroll", update, { passive: true })
+    return () => {
+      document.removeEventListener("pointermove", syncPointer)
+      window.removeEventListener("scroll", update)
+    }
   }, [])
 
   const { base, spread } = glowColorMap[glowColor]
@@ -84,7 +96,6 @@ const GlowCard = ({
     backgroundColor: "var(--backdrop, transparent)",
     backgroundSize: "calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))",
     backgroundPosition: "50% 50%",
-    backgroundAttachment: "fixed",
     border: "var(--border-size) solid var(--backup-border)",
     position: "relative",
     ...(width !== undefined && { width: typeof width === "number" ? `${width}px` : width }),
