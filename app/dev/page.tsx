@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronRight } from "lucide-react";
 
 import { Nav } from "@/components/site/nav";
 import { Reveal } from "@/components/site/reveal";
+import { ProjectCard } from "@/components/site/project-card";
 import { SectionHeading, glass } from "@/components/site/section-heading";
 import { SiteBackground } from "@/components/site/site-background";
 import { about, projects, site, skills } from "@/content/site";
@@ -59,28 +60,30 @@ export default function Dev() {
             <SectionHeading eyebrow="Projets" title="Sélection de travaux." />
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
               {projects.map((p, i) => (
-                <Reveal key={i} delay={(i % 2) * 100}>
-                  <a
-                    href={p.href}
-                    className={`${glass} group flex h-full min-h-72 flex-col justify-between p-8 transition duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07] sm:p-10`}
-                  >
-                    <div>
-                      <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">{p.title}</h3>
-                      <p className="mt-3 text-pretty text-white/60">{p.description}</p>
-                    </div>
-                    <div className="mt-8 flex items-end justify-between gap-4">
-                      <ul className="flex flex-wrap gap-2">
-                        {p.tags.map((t, j) => (
-                          <li key={j} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/60">
-                            {t}
-                          </li>
-                        ))}
-                      </ul>
-                      <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/10 transition group-hover:bg-white group-hover:text-black">
-                        <ArrowUpRight className="size-4" />
-                      </span>
-                    </div>
-                  </a>
+                <Reveal key={i} delay={(i % 2) * 100} className="h-full">
+                  <ProjectCard>
+                    <a
+                      href={p.href}
+                      className="group relative flex h-full min-h-72 flex-col justify-between rounded-3xl p-8 sm:p-10"
+                    >
+                      <div>
+                        <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">{p.title}</h3>
+                        <p className="mt-3 text-pretty text-white/60">{p.description}</p>
+                      </div>
+                      <div className="mt-8 flex items-end justify-between gap-4">
+                        <ul className="flex flex-wrap gap-2">
+                          {p.tags.map((t, j) => (
+                            <li key={j} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/60">
+                              {t}
+                            </li>
+                          ))}
+                        </ul>
+                        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/10 transition group-hover:bg-white group-hover:text-black">
+                          <ArrowUpRight className="size-4" />
+                        </span>
+                      </div>
+                    </a>
+                  </ProjectCard>
                 </Reveal>
               ))}
             </div>

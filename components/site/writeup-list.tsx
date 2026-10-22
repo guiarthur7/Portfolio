@@ -40,7 +40,7 @@ export function WriteupList({ writeups }: { writeups: WriteupMeta[] }) {
 
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
         {shown.map((w, i) => (
-          <Reveal key={w.slug} delay={(i % 2) * 100}>
+          <Reveal key={w.slug} delay={(i % 2) * 100} className="h-full">
             <WriteupCard writeup={w} />
           </Reveal>
         ))}

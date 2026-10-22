@@ -4,6 +4,7 @@ import { ArrowUpRight, ChevronRight, KeyRound } from "lucide-react";
 
 import { Nav } from "@/components/site/nav";
 import { Reveal } from "@/components/site/reveal";
+import { ProjectCard } from "@/components/site/project-card";
 import { SectionHeading, glass } from "@/components/site/section-heading";
 import { WriteupCard, pill } from "@/components/site/writeup-card";
 import { SiteBackground } from "@/components/site/site-background";
@@ -96,7 +97,7 @@ export default function Home() {
             <SectionHeading eyebrow="Write-ups" title="CTF & challenges, expliqués." />
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
               {latestWriteups.map((w, i) => (
-                <Reveal key={w.slug} delay={(i % 2) * 100}>
+                <Reveal key={w.slug} delay={(i % 2) * 100} className="h-full">
                   <WriteupCard writeup={w} />
                 </Reveal>
               ))}
@@ -117,23 +118,22 @@ export default function Home() {
             <SectionHeading eyebrow="Homelab & projets" title="Construit, cassé, durci." />
             <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
               {labs.map((l, i) => (
-                <Reveal key={i} delay={i * 100}>
-                  <a
-                    href={l.href}
-                    className={`${glass} group flex h-full flex-col justify-between p-8 transition duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.07]`}
-                  >
-                    <div>
-                      <h3 className="text-xl font-semibold tracking-tight">{l.title}</h3>
-                      <p className="mt-3 text-pretty text-white/60">{l.text}</p>
-                    </div>
-                    <ul className="mt-8 flex flex-wrap gap-2">
-                      {l.stack.map((s, j) => (
-                        <li key={j} className={pill}>
-                          {s}
-                        </li>
-                      ))}
-                    </ul>
-                  </a>
+                <Reveal key={i} delay={i * 100} className="h-full">
+                  <ProjectCard>
+                    <a href={l.href} className="relative flex h-full flex-col justify-between rounded-3xl p-8">
+                      <div>
+                        <h3 className="text-xl font-semibold tracking-tight">{l.title}</h3>
+                        <p className="mt-3 text-pretty text-white/60">{l.text}</p>
+                      </div>
+                      <ul className="mt-8 flex flex-wrap gap-2">
+                        {l.stack.map((s, j) => (
+                          <li key={j} className={pill}>
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </a>
+                  </ProjectCard>
                 </Reveal>
               ))}
             </div>
