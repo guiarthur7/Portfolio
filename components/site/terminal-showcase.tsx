@@ -1,12 +1,12 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation"
-import { certifications, cyber, cyberSkills, domains } from "@/content/cyber"
+import { certifications, cyber, cyberSkills, labs, stats } from "@/content/cyber"
 import { site } from "@/content/site"
 
 const user = site.name.split(" ")[0].toLowerCase()
 
 function Prompt({ command, children }: { command: string; children?: React.ReactNode }) {
   return (
-    <p className="mt-4 first:mt-0">
+    <p className="mt-3 first:mt-0 sm:mt-4">
       <span className="text-emerald-400">{user}@portfolio</span>
       <span className="text-white/40">:</span>
       <span className="text-sky-400">~</span>
@@ -48,17 +48,28 @@ export function TerminalShowcase() {
             {site.name} — {cyber.role}
           </p>
 
-          <Prompt command="cat domaines.txt" />
+          <Prompt command="ls labs/" />
           <ul>
-            {domains.map((d) => (
-              <li key={d.title}>
-                <span className="text-emerald-400">▸</span> {d.title}
+            {labs.map((l) => (
+              <li key={l.title}>
+                <span className="text-emerald-400">▸</span> {l.title}{" "}
+                <span className="hidden text-white/40 sm:inline">— {l.stack.join(", ")}</span>
               </li>
             ))}
           </ul>
 
+          <Prompt command="cat classements.txt" />
+          <p className="text-pretty">
+            {stats.map((s, i) => (
+              <span key={s.label}>
+                {i > 0 && <span className="text-white/40"> · </span>}
+                <span className="text-amber-300">{s.value}</span> {s.label}
+              </span>
+            ))}
+          </p>
+
           <Prompt command="ls certifications/" />
-          <ul className="grid gap-x-6 sm:grid-cols-2">
+          <ul className="grid grid-cols-2 gap-x-6">
             {certifications.map((c) => (
               <li key={c.name}>
                 <span className="text-sky-300">{c.name}</span> <span className="text-white/40">— {c.status}</span>
@@ -66,8 +77,16 @@ export function TerminalShowcase() {
             ))}
           </ul>
 
-          <Prompt command="cat competences.txt | head" />
-          <p className="text-pretty">{cyberSkills.flatMap((s) => s.items).join(" · ")}</p>
+          {/* Écran trop court sur mobile : les compétences sont détaillées plus bas dans la page */}
+          <div className="hidden sm:mt-4 sm:block">
+            <Prompt command="cat competences.txt | head" />
+            <p className="text-pretty">
+              {cyberSkills
+                .filter((s) => s.group !== "Soft skills")
+                .flatMap((s) => s.items)
+                .join(" · ")}
+            </p>
+          </div>
 
           <Prompt command="./contact.sh" />
           <p>

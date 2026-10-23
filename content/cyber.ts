@@ -10,16 +10,15 @@ export const cyber = {
   heroIntro:
     "Étudiant en cybersécurité à Ynov, je me forme au pentest web, à la sécurité réseau et à la détection d'incidents. Entre CTF, write-ups et homelab, je cherche les failles avant les autres — et j'explique comment les corriger. Je suis à la recherche d'un stage ou d'une alternance.",
   tagline: "Je cherche les failles avant les autres — et j'explique comment les corriger.",
-  email: "contact@exemple.fr",
+  email: "guillaume.arthur.pro@gmail.com",
   // Empreinte de ta clé PGP publique (laisse vide pour masquer la ligne)
   pgpFingerprint: "",
   pgpKeyHref: "#",
   links: [
     { label: "GitHub", href: "https://github.com/guiarthur7" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Root-Me", href: "#" },
-    { label: "Hack The Box", href: "#" },
-    { label: "TryHackMe", href: "#" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/guiarthur7/" },
+    { label: "Hack The Box", href: "https://profile.hackthebox.com/profile/01a08161-9191-721a-b420-97c2b62548f2" },
+    { label: "TryHackMe", href: "https://tryhackme.com/p/zmalsa" },
   ],
 }
 
@@ -48,15 +47,15 @@ export const domains = [
 // Homelab & projets techniques
 export const labs = [
   {
-    title: "Lab Active Directory",
-    text: "Un petit domaine Windows virtualisé pour comprendre les mauvaises configurations courantes et comment les détecter.",
-    stack: ["Windows Server", "Proxmox", "BloodHound"],
+    title: "Serveur web sécurisé",
+    text: "Mise en place et durcissement d'un serveur web Apache : configuration sécurisée, HTTPS et sauvegardes régulières pour pouvoir restaurer en cas d'incident.",
+    stack: ["Apache", "Linux", "Sauvegardes"],
     href: "#",
   },
   {
-    title: "SOC maison",
-    text: "Centralisation des logs de mes machines de lab, tableaux de bord et premières règles de détection.",
-    stack: ["Wazuh", "Sysmon", "Sigma"],
+    title: "Réseau virtualisé OPNsense",
+    text: "Un routeur OPNsense devant plusieurs VM : segmentation et isolation des réseaux, règles de pare-feu au plus juste et accès distant par VPN.",
+    stack: ["OPNsense", "VPN", "Pare-feu"],
     href: "#",
   },
   {
@@ -67,29 +66,29 @@ export const labs = [
   },
 ]
 
-// Chiffres mis en avant (classements, CTF…) — exemples à remplacer
+// Chiffres mis en avant (classements, plateformes…)
 export const stats = [
-  { value: "1 200", label: "points Root-Me" },
-  { value: "15", label: "machines HTB" },
-  { value: "6", label: "CTF disputés" },
-  { value: "Top 10 %", label: "TryHackMe" },
+  { value: "Top 5 %", label: "TryHackMe" },
+  { value: "10 000", label: "points TryHackMe" },
+  { value: "10", label: "machines Hack The Box" },
 ]
 
 export const certifications = [
-  { name: "SecNumacadémie", issuer: "ANSSI", status: "En cours" },
-  { name: "eJPT", issuer: "INE", status: "En préparation" },
-  { name: "CompTIA Security+", issuer: "CompTIA", status: "Objectif 2027" },
+  { name: "SEC0", issuer: "TryHackMe", status: "Obtenue" },
+  { name: "SEC1", issuer: "TryHackMe", status: "Obtenue" },
+  { name: "CJCA", issuer: "Hack The Box", status: "En préparation" },
+  { name: "CCNA", issuer: "Cisco", status: "En préparation" },
 ]
 
 export const cyberSkills = [
-  { group: "Offensif", items: ["Pentest web", "Reconnaissance", "Élévation de privilèges", "Active Directory"] },
-  { group: "Défensif", items: ["Analyse de logs", "SIEM", "Durcissement", "Réponse à incident"] },
-  { group: "Outils", items: ["Burp Suite", "Nmap", "Wireshark", "Ghidra"] },
-  { group: "Langages & systèmes", items: ["Python", "Bash", "C / C++", "Linux & Windows"] },
+  { group: "Cybersécurité", items: ["Nmap", "Gobuster", "Hydra", "Burp Suite", "Metasploit", "Fail2Ban"] },
+  { group: "Systèmes & réseaux", items: ["Linux", "Windows Server", "Cisco", "OPNsense", "VLAN", "Apache", "Nginx"] },
+  { group: "Langages", items: ["Python", "Golang", "SQL", "HTML / CSS", "JavaScript / TypeScript", "React", "Bash"] },
+  { group: "Soft skills", items: ["Rigoureux", "Autonome", "Curieux", "Motivé", "Investi", "Sérieux"] },
 ]
 
 export const timeline = [
-  { when: "Aujourd'hui", what: "Bachelor informatique, spécialité cybersécurité — Ynov Campus" },
-  { when: "2025", what: "Premiers CTF en équipe et montage d'un homelab" },
-  { when: "2024", what: "Entrée à Ynov : algorithmique, réseaux, développement web et système" },
+  { when: "2026 – 2027", what: "Spécialisation cybersécurité — Bachelor informatique, Ynov Campus" },
+  { when: "2025 – 2026", what: "Entrée à Ynov Campus en Bachelor informatique" },
+  { when: "2024 – 2025", what: "Baccalauréat mention Très bien — spécialités Mathématiques et NSI" },
 ]

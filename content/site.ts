@@ -5,10 +5,10 @@ export const site = {
   name: "Arthur Guillaume",
   role: "Développeur en formation · Ynov",
   tagline: "Des cartes interactives aux API sécurisées, je construis des applications web solides de bout en bout.",
-  email: "contact@exemple.fr",
+  email: "guillaume.arthur.pro@gmail.com",
   links: [
     { label: "GitHub", href: "https://github.com/guiarthur7" },
-    { label: "LinkedIn", href: "#" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/guiarthur7/" },
   ],
 }
 
@@ -37,6 +37,41 @@ export const projects = [
     description: "Gestion d'une librairie en programmation orientée objet : livres, clients, ventes et magasin.",
     tags: ["C++", "POO", "Makefile"],
     href: "#",
+  },
+]
+
+// Projets affichés sur la page /projets (repos GitHub), du plus récent au plus ancien
+export const githubProjects = [
+  {
+    title: "Prism",
+    description:
+      "Forum communautaire dédié à l'astronomie et à l'exploration spatiale : comptes, sessions sécurisées et réinitialisation de mot de passe par e-mail, posts avec images et vidéos, likes, commentaires et recherche. Projet en équipe, en ligne.",
+    tags: ["Go", "API REST", "SQLite", "JavaScript"],
+    href: "https://github.com/guiarthur7/Prism",
+    live: "https://prism.dyskolos.fr",
+  },
+  {
+    title: "ArmoniK",
+    description:
+      "Plateforme de jeux musicaux multijoueurs en temps réel — Blind Test et Petit Bac musical — avec salles privées, comptes utilisateurs et classements. Développée à quatre à Ynov.",
+    tags: ["Go", "WebSocket", "SQLite", "API Deezer"],
+    href: "https://github.com/guiarthur7/ArmoniK",
+    live: "https://armonik.dyskolos.fr",
+  },
+  {
+    title: "Olympe",
+    description:
+      "Site vitrine d'un serveur de jeu roleplay : accueil, règlement, boutique et mentions légales, déployé automatiquement sur GitHub Pages avec un nom de domaine dédié.",
+    tags: ["React", "Vite", "Tailwind", "GitHub Actions"],
+    href: "https://github.com/guiarthur7/Olympe",
+    live: "https://olympe.website",
+  },
+  {
+    title: "Termina",
+    description:
+      "RPG textuel en ligne de commande : création de personnage, combats au tour par tour, inventaire extensible, sorts, marchand et forge d'équipements.",
+    tags: ["Go", "CLI", "POO"],
+    href: "https://github.com/guiarthur7/Termina",
   },
 ]
 

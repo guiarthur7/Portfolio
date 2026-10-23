@@ -1,26 +1,22 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, ChevronRight, KeyRound, Mail } from "lucide-react";
+import { ArrowUpRight, KeyRound, Mail } from "lucide-react";
 
 import { Nav, mainLinks } from "@/components/site/nav";
 import { PortfolioHero } from "@/components/ui/portfolio-hero";
 import GlassmorphismCta from "@/components/ui/glassmorphism-cta";
 import { Reveal } from "@/components/site/reveal";
-import { ProjectCard } from "@/components/site/project-card";
 import { SectionHeading, glass } from "@/components/site/section-heading";
 import { TerminalShowcase } from "@/components/site/terminal-showcase";
-import { WriteupCard, pill } from "@/components/site/writeup-card";
 import { SiteBackground } from "@/components/site/site-background";
 import {
   certifications,
   cyber,
   cyberSkills,
   domains,
-  labs,
   stats,
   timeline,
 } from "@/content/cyber";
 import { site } from "@/content/site";
-import { getAllWriteups } from "@/lib/writeups";
 
 export const metadata: Metadata = {
   title: `${site.name} — Cybersécurité`,
@@ -28,8 +24,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const latestWriteups = getAllWriteups().slice(0, 4);
-
   return (
     <>
       <SiteBackground />
@@ -60,56 +54,11 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Write-ups */}
-          <section id="write-ups" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-28 sm:px-6 sm:py-40">
-            <SectionHeading eyebrow="Write-ups" title="CTF & challenges, expliqués." />
-            <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-              {latestWriteups.map((w, i) => (
-                <Reveal key={w.slug} delay={(i % 2) * 100} className="h-full">
-                  <WriteupCard writeup={w} />
-                </Reveal>
-              ))}
-            </div>
-            <Reveal className="mt-10 text-center">
-              <GlassmorphismCta
-                href="/writeups"
-                label="Tous les write-ups"
-                icon={<ChevronRight className="size-4 text-white" strokeWidth={1.5} />}
-              />
-            </Reveal>
-          </section>
-
-          {/* Labs */}
-          <section id="labs" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-28 sm:px-6 sm:py-40">
-            <SectionHeading eyebrow="Homelab & projets" title="Construit, cassé, durci." />
-            <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
-              {labs.map((l, i) => (
-                <Reveal key={i} delay={i * 100} className="h-full">
-                  <ProjectCard>
-                    <a href={l.href} className="relative flex h-full flex-col justify-between rounded-3xl p-8">
-                      <div>
-                        <h3 className="text-xl font-semibold tracking-tight">{l.title}</h3>
-                        <p className="mt-3 text-pretty text-white/60">{l.text}</p>
-                      </div>
-                      <ul className="mt-8 flex flex-wrap gap-2">
-                        {l.stack.map((s, j) => (
-                          <li key={j} className={pill}>
-                            {s}
-                          </li>
-                        ))}
-                      </ul>
-                    </a>
-                  </ProjectCard>
-                </Reveal>
-              ))}
-            </div>
-          </section>
-
           {/* Certifications & classements */}
           <section id="certifications" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-28 sm:px-6 sm:py-40">
             <SectionHeading eyebrow="Certifications & classements" title="Les preuves." />
             <Reveal>
-              <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 lg:grid-cols-4">
+              <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-3">
                 {stats.map((s, i) => (
                   <div key={i} className="flex flex-col-reverse bg-black/50 p-6 backdrop-blur-2xl sm:p-8">
                     <dt className="mt-1 text-xs text-white/50">{s.label}</dt>
@@ -171,7 +120,7 @@ export default function Home() {
           {/* Contact */}
           <section
             id="contact"
-            className="flex min-h-[calc(100dvh-4rem)] scroll-mt-16 flex-col items-center justify-center px-6 py-24 text-center"
+            className="flex min-h-[calc(100dvh-4rem)] scroll-mt-16 flex-col items-center justify-center px-6 pt-24 pb-40 text-center"
           >
             <Reveal>
               <h2 className="text-5xl font-semibold tracking-[-0.03em] sm:text-7xl">Parlons-en.</h2>

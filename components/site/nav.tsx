@@ -11,9 +11,9 @@ const defaultLinks: NavbarLink[] = [
 // Navigation principale (accueil, write-ups) : liens absolus /#… valables depuis toutes les pages
 export const mainLinks: NavbarLink[] = [
   { href: "/writeups", label: "Write-ups" },
-  { href: "/#labs", label: "Labs" },
+  { href: "/projets", label: "Projets" },
+  { href: "/labs", label: "Labs" },
   { href: "/#certifications", label: "Certifications" },
-  { href: "/#contact", label: "Contact" },
 ]
 
 const githubHref = site.links.find((l) => l.label === "GitHub")?.href
